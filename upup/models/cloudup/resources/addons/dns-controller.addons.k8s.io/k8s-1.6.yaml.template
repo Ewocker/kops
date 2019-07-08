@@ -34,6 +34,8 @@ spec:
       containers:
       - name: dns-controller
         image: kope/dns-controller:1.11.0
+        securityContext:
+          runAsUser: 1000
         command:
 {{ range $arg := DnsControllerArgv }}
         - "{{ $arg }}"
